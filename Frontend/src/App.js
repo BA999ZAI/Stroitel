@@ -21,6 +21,10 @@ import iconVectorLeft from './assets/Icons/iconVectorLeft.png';
 import iconVectorRight from './assets/Icons/iconVectorRight.png';
 import iconPhone from './assets/Icons/iconPhone.png';
 import iconMarket from './assets/Icons/iconMarket.png';
+import iconGilKomp from './assets/Icons/iconGilKomp.png';
+import iconBabyGarden from './assets/Icons/iconBabyGarden.png';
+import iconACS from './assets/Icons/iconACS.png';
+import iconPlus from './assets/Icons/iconPlus.png';
 
 import PriceProjects from './components/priceProjects/priceProjects';
 import InfComplecs from './components/infComplecs/infComplecs';
@@ -162,7 +166,7 @@ const Layout = () => {
             <div className='marker' id='ЖК "Яблоновский"' style={{top: '157px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
               <div className='textMarker'>
                 <div className='blockImageMarker'>
-                  <img src={iconMarket} className='imageMarker' />
+                  <img src={iconGilKomp} className='imageMarker' />
                 </div>
                 <p className='pMarker'>ЖК "Яблоновский"</p>
               </div>
@@ -171,7 +175,7 @@ const Layout = () => {
             <div className='marker' id='Детский сад' style={{top: '274px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
               <div className='textMarker'>
                 <div className='blockImageMarker'>
-                  <img src={iconMarket} className='imageMarker' />
+                  <img src={iconBabyGarden} className='imageMarker' />
                 </div>
                 <p className='pMarker'>Детский сад</p>
               </div>
@@ -180,7 +184,7 @@ const Layout = () => {
             <div className='marker' id='АЗС' style={{top: '391px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
               <div className='textMarker'>
                 <div className='blockImageMarker'>
-                  <img src={iconMarket} className='imageMarker' />
+                  <img src={iconACS} className='imageMarker' />
                 </div>
                 <p className='pMarker'>АЗС</p>
               </div>
@@ -189,7 +193,7 @@ const Layout = () => {
             <div className='marker' id='Поликлинника' style={{top: '508px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
               <div className='textMarker'>
                 <div className='blockImageMarker'>
-                  <img src={iconMarket} className='imageMarker' />
+                  <img src={iconPlus} className='imageMarker' />
                 </div>
                 <p className='pMarker'>Поликлинника</p>
               </div>

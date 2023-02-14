@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 
@@ -20,10 +20,12 @@ import iconPutty from './assets/Icons/iconPutty.png';
 import iconVectorLeft from './assets/Icons/iconVectorLeft.png';
 import iconVectorRight from './assets/Icons/iconVectorRight.png';
 import iconPhone from './assets/Icons/iconPhone.png';
+import iconMarket from './assets/Icons/iconMarket.png';
 
 import PriceProjects from './components/priceProjects/priceProjects';
 import InfComplecs from './components/infComplecs/infComplecs';
 import FullInformation from './components/fullInformation/fullInformation';
+import { useState } from 'react';
 
 
 export default function App () {
@@ -39,26 +41,26 @@ export default function App () {
 
 
 const Layout = () => {
+  const [textMark, setTextMark] = useState('ЖК "Яблоновский"');
+  const [dateMark, setDateMark] = useState([44.990257, 38.926537]);
 
+  const serchMarker = (id) => {
+    setTextMark(id);
+ 
+    console.log(dateMark);
+    if (id === 'Магазины') {
+      setDateMark([44.991557, 38.931509]);
+    } else if (id === 'ЖК "Яблоновский"') {
+      setDateMark([44.990257, 38.926537]);
+    } else if (id === 'Детский сад') {
+      setDateMark([44.987573, 38.930457]);
+    } else if (id === 'АЗС') {
+      setDateMark([44.989330, 38.924230]);
+    } else {
+      setDateMark([44.990008, 38.932633]);
+    }
+  };
 
-
-  // YMaps.ready(init);
-  // function init () {
-
-  //   var myMap = new YMaps.Map("map", {
-  //     center: [44.990257, 38.926537],
-  //     zoom: 15.5,
-  //   });
-
-  //   // Метка без содержимого с точкой в центре
-  //   var placemark1 = new YMaps.Placemark([44.990257, 38.926537], {
-  //     hintContent: 'Метка 1',
-  //   }, {
-  //     'preset': 'islands#nightDotIcon'
-  //   });
-
-  //   myMap.geoObjects.add(placemark1);
-  // }
 
 
   return (
@@ -96,7 +98,7 @@ const Layout = () => {
         <p style={{fontSize: '32px', margin: '28px auto 0px auto'}}>Краснодар, пгт. Яблоновский ул. Кобцевой</p>
         <p style={{fontSize: '35px', margin: '0px auto 35px auto'}}><b>от 63 801 до 65 678 ₽/м²</b></p>
       
-        <button type='submit' className='Button1'>Узнать стоимость проекта</button>
+        <button type='submit' className='button1'>Узнать стоимость проекта</button>
       
         <div style={{display: 'flex', height: '100%', justifyContent: 'space-between', margin: '41px 200px 0px 200px', zIndex: '100'}}>
           <PriceProjects title='Квартиры' body='от 63 801 ₽/м²' />
@@ -136,8 +138,54 @@ const Layout = () => {
       {/* YandexMAP */}
       <div className='yandexMap' style={{width: '100%', height: '666px'}}>
         <YMaps>
-          <Map style={{width: '100%', height: '100%'}} defaultState={{ center: [44.991133, 38.935577], zoom: 15.5}}>
-            <Placemark icon defaultGeometry={[44.990257, 38.926537]} />
+          <Map style={{width: '100%', height: '100%', position: 'relative'}} defaultState={{ center: [44.991133, 38.935577], zoom: 15.5}}>
+            <Placemark geometry={dateMark} properties={{iconCaption: textMark}} options={{iconColor: '#31BEF4'}} />
+            
+            <div className='marker' id='Магазины' style={{top: '40px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
+              <div className='textMarker'>
+                <div className='blockImageMarker'>
+                  <img src={iconMarket} className='imageMarker' />
+                </div>
+                <p className='pMarker'>Магазины</p>
+              </div>
+            </div>
+
+            <div className='marker' id='ЖК "Яблоновский"' style={{top: '157px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
+              <div className='textMarker'>
+                <div className='blockImageMarker'>
+                  <img src={iconMarket} className='imageMarker' />
+                </div>
+                <p className='pMarker'>ЖК "Яблоновский"</p>
+              </div>
+            </div>
+
+            <div className='marker' id='Детский сад' style={{top: '274px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
+              <div className='textMarker'>
+                <div className='blockImageMarker'>
+                  <img src={iconMarket} className='imageMarker' />
+                </div>
+                <p className='pMarker'>Детский сад</p>
+              </div>
+            </div>
+
+            <div className='marker' id='АЗС' style={{top: '391px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
+              <div className='textMarker'>
+                <div className='blockImageMarker'>
+                  <img src={iconMarket} className='imageMarker' />
+                </div>
+                <p className='pMarker'>АЗС</p>
+              </div>
+            </div>
+
+            <div className='marker' id='Поликлинника' style={{top: '508px'}} onClick={(e) => serchMarker(e.currentTarget.id)}>
+              <div className='textMarker'>
+                <div className='blockImageMarker'>
+                  <img src={iconMarket} className='imageMarker' />
+                </div>
+                <p className='pMarker'>Поликлинника</p>
+              </div>
+            </div>
+
           </Map> 
         </YMaps>
 
@@ -228,13 +276,13 @@ const Layout = () => {
                   <input type='text' className='inputText' placeholder='Ваш номер телефона' />
                 </div>
               
-                <button className="button2"><p style={{fontSize: '22px', color: 'white'}}>Отправить заявку</p></button>
+                <button className="button2"><p style={{fontSize: '22px', color: 'white', cursor: 'pointer'}}>Отправить заявку</p></button>
               </div>
                 
             </form>
             
             <div style={{display: 'flex', alignItems: 'center', margin: '25px auto 0px auto'}}>
-              <input className='checkbox' type='checkbox' />  
+              <input type='checkbox' id='cb' /><label for='cb'></label>
               <p style={{fontSize: '14px', marginLeft: '10px'}}>Я принимаю условия</p>
               <a style={{fontSize: '14px', color: '#31BEF4', marginLeft: '4px'}}> обработки персональных данных</a>
             </div>

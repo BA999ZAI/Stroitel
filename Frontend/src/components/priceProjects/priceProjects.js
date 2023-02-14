@@ -1,10 +1,15 @@
+import './priceProjects.scss';
 
-
-const priceProjects = ({title, body}) => {
+const PriceProjects = ({title, body}) => {
     return <>
-
-    
+        <div className='firstBlock'>
+            <div className="innerBlock">
+                <div className="block"></div>
+                <p className='title'>{title}</p>
+                <p className='body'><b>{body}</b></p>
+            </div>
+        </div>
     </>
 };
 
-export default priceProjects;
+export default PriceProjects;

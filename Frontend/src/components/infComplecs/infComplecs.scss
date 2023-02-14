@@ -1,0 +1,60 @@
+p {
+    margin: 0px;
+}
+
+.FirstBlock {
+    width: 262px;
+    height: 139px;
+    background-color: #F9FCFD;
+    box-shadow: 0px 5px 15px rgba(33, 45, 85, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageBlock {
+    display: flex;
+    position: relative;
+    margin: 35px 0px 35px 15px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 19px rgba(33, 45, 85, 0.06);
+    border-radius: 10px;
+}
+
+.imageBlock::after {
+    content: '';
+    position: absolute;
+    background-color: #f5f8fa;
+    border-radius: 50px;
+    top: 27.35px;
+    left: -6px;
+    width: 12px;
+    height: 14px;
+}
+
+.image {
+    width: 45px;
+    height: 45px;
+    margin: 12px 18px 12px 17px;
+}
+
+.textBlock {
+    margin: 36px auto auto auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.Title {
+    margin: 0px;
+    margin-bottom: 15px;
+    font-family: 'Gilroy-Medium';
+    font-size: 22px;
+    color: #212D55;
+}
+
+.Body {
+    margin: 0px;
+    font-size: 22px;
+    color: #212D55;
+    font-family: 'Gilroy-Medium';
+}

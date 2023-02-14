@@ -47,17 +47,26 @@ const Layout = () => {
   const serchMarker = (id) => {
     setTextMark(id);
  
-    console.log(dateMark);
-    if (id === 'Магазины') {
-      setDateMark([44.991557, 38.931509]);
-    } else if (id === 'ЖК "Яблоновский"') {
-      setDateMark([44.990257, 38.926537]);
-    } else if (id === 'Детский сад') {
-      setDateMark([44.987573, 38.930457]);
-    } else if (id === 'АЗС') {
-      setDateMark([44.989330, 38.924230]);
-    } else {
-      setDateMark([44.990008, 38.932633]);
+    switch(id) {
+      case 'Магазины':
+        setDateMark([44.991557, 38.931509]);
+        break;
+
+      case 'ЖК "Яблоновский"':
+        setDateMark([44.990257, 38.926537]);  
+        break;
+
+      case 'Детский сад':
+        setDateMark([44.987573, 38.930457]);
+        break;
+
+      case 'АЗС':
+        setDateMark([44.989330, 38.924230]);
+        break;
+
+      case 'Поликлинника':
+        setDateMark([44.990008, 38.932633]);
+        break;
     }
   };
 
